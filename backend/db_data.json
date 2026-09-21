@@ -1,0 +1,231 @@
+{
+  "users": [
+    {
+      "id": "usr_admin",
+      "username": "admin",
+      "email": "admin@aksesai.id",
+      "password": "adminpassword123",
+      "role": "admin"
+    },
+    {
+      "id": "usr_1789623677202",
+      "username": "karla",
+      "email": "dvzakar@gmail.com",
+      "password": "123456789",
+      "role": "user",
+      "created_at": "2026-09-17T05:41:17.202Z"
+    },
+    {
+      "id": "usr_1789625202597",
+      "username": "kraal",
+      "email": "vwaylostraour@gmail.com",
+      "password": "098765",
+      "role": "user",
+      "created_at": "2026-09-17T06:06:42.597Z"
+    },
+    {
+      "id": "usr_1789625759193",
+      "username": "klkl",
+      "email": "raeynersdarn@gmail.com",
+      "password": "qwertyu",
+      "role": "user",
+      "created_at": "2026-09-17T06:15:59.194Z"
+    },
+    {
+      "id": "usr_1789629129510",
+      "username": "askals",
+      "email": "laquishadananjoyo@gmail.com",
+      "password": "asdfghj",
+      "role": "user",
+      "created_at": "2026-09-17T07:12:09.510Z"
+    },
+    {
+      "id": "usr_1789734714297",
+      "username": "cyril",
+      "email": "arancktachtiar@gmail.com",
+      "password": "123456789",
+      "role": "user",
+      "created_at": "2026-09-18T12:31:54.297Z"
+    },
+    {
+      "id": "usr_1789736459225",
+      "username": "zakis",
+      "email": "dzblitz123@gmail.com",
+      "password": "asdfghj",
+      "role": "user",
+      "created_at": "2026-09-18T13:00:59.225Z"
+    }
+  ],
+  "history": [
+    {
+      "id": "hist_1789738300852",
+      "user_id": "usr_1789736459225",
+      "feature": "speech",
+      "title": "Transkripsi Suara Langsung (4 Kalimat)",
+      "input_snippet": "Pembicara 1: Kalau dia masih.\nPembicara 2: Kamu yang ngomong coba bisa deh kayaknya.\nPembicara 1: T 1 2 3 4 5.\nPembicara 2: Nah coba.",
+      "result_data": "Pembicara 1: Kalau dia masih.\nPembicara 2: Kamu yang ngomong coba bisa deh kayaknya.\nPembicara 1: T 1 2 3 4 5.\nPembicara 2: Nah coba.",
+      "language": "Bahasa Indonesia",
+      "timestamp": "2026-09-18T13:31:40.853Z"
+    },
+    {
+      "id": "hist_1789738138791",
+      "user_id": "usr_1789736459225",
+      "feature": "speech",
+      "title": "Transkripsi Suara Langsung (3 Kalimat)",
+      "input_snippet": "Pembicara 1: Terus kayak halo tes gitu.\nPembicara 2: Nah dia tuh bisa ke input.\nPembicara 1: Dan kalau misal ada tanggal bulan waktu misal 17 Agustus ",
+      "result_data": "Pembicara 1: Terus kayak halo tes gitu.\nPembicara 2: Nah dia tuh bisa ke input.\nPembicara 1: Dan kalau misal ada tanggal bulan waktu misal 17 Agustus 1904 5 dia tuh bisa ke detect.",
+      "language": "Bahasa Indonesia",
+      "timestamp": "2026-09-18T13:28:58.791Z"
+    },
+    {
+      "id": "hist_1789737422166",
+      "user_id": "usr_1789736459225",
+      "feature": "speech",
+      "title": "Transkripsi Suara Langsung (1 Kalimat)",
+      "input_snippet": "Pembicara 1: Halo.",
+      "result_data": "Pembicara 1: Halo.",
+      "language": "Bahasa Indonesia",
+      "timestamp": "2026-09-18T13:17:02.166Z"
+    },
+    {
+      "id": "hist_1789737395546",
+      "user_id": "usr_1789736459225",
+      "feature": "speech",
+      "title": "Transkripsi Suara Langsung (1 Kalimat)",
+      "input_snippet": "Pembicara 2: Assalamualaikum warahmatullahi wabarakatuh. Besok kita musyrawan tanggal 20 September 2026 di muh.",
+      "result_data": "Pembicara 2: Assalamualaikum warahmatullahi wabarakatuh. Besok kita musyrawan tanggal 20 September 2026 di muh.",
+      "language": "Bahasa Indonesia",
+      "timestamp": "2026-09-18T13:16:35.546Z"
+    },
+    {
+      "id": "hist_1789736538977",
+      "user_id": "usr_1789736459225",
+      "feature": "speech",
+      "title": "Transkripsi Suara Langsung (4 Kalimat)",
+      "input_snippet": "Pembicara 1: Besok pada hari Sabtu tanggal 20 September 2026 akan diadakan musyawarah ranting di tempat sma satu Yogyakarta.\nPembicara 1: Halo.\nPembic",
+      "result_data": "Pembicara 1: Besok pada hari Sabtu tanggal 20 September 2026 akan diadakan musyawarah ranting di tempat sma satu Yogyakarta.\nPembicara 1: Halo.\nPembicara 2: Halo cek bangsat halo halo cek bangsa halo halo cek.\nPembicara 1: Aduh pada dasarnya brengsek.",
+      "language": "Bahasa Indonesia",
+      "timestamp": "2026-09-18T13:02:18.977Z"
+    },
+    {
+      "id": "hist_1789736499243",
+      "user_id": "usr_1789736459225",
+      "feature": "speech",
+      "title": "Transkripsi Suara Langsung (1 Kalimat)",
+      "input_snippet": "Pembicara 1: Jadi duduk.",
+      "result_data": "Pembicara 1: Jadi duduk.",
+      "language": "Bahasa Indonesia",
+      "timestamp": "2026-09-18T13:01:39.243Z"
+    },
+    {
+      "id": "hist_1789736198623",
+      "user_id": "usr_1789734714297",
+      "feature": "speech",
+      "title": "Transkripsi Suara Langsung (1 Kalimat)",
+      "input_snippet": "Pembicara 1: Nama saya zero.",
+      "result_data": "Pembicara 1: Nama saya zero.",
+      "language": "Bahasa Indonesia",
+      "timestamp": "2026-09-18T12:56:38.624Z"
+    },
+    {
+      "id": "hist_1789734738359",
+      "user_id": "usr_1789734714297",
+      "feature": "speech",
+      "title": "Transkripsi Suara Langsung (1 Kalimat)",
+      "input_snippet": "Pembicara 1: Halo nama saya sereal dan hari ini saya sedang mendemokan tentang website saya. Akses a yang dibuat untuk membantu para penyandang disabi",
+      "result_data": "Pembicara 1: Halo nama saya sereal dan hari ini saya sedang mendemokan tentang website saya. Akses a yang dibuat untuk membantu para penyandang disabilitas tuli dan dengan keterbatasan diseleksi a.",
+      "language": "Bahasa Indonesia",
+      "timestamp": "2026-09-18T12:32:18.359Z"
+    },
+    {
+      "id": "hist_1789629177103",
+      "user_id": "usr_1789629129510",
+      "feature": "speech",
+      "title": "Transkripsi Suara Langsung (4 Kalimat)",
+      "input_snippet": "Pembicara 1: Pada tanggal 15 Agustus 1945 Indonesia merdeka. Maka dari itu pada setiap hari mulai semenjak pengumuman kemerdekaan itu seluruh Indonesi",
+      "result_data": "Pembicara 1: Pada tanggal 15 Agustus 1945 Indonesia merdeka. Maka dari itu pada setiap hari mulai semenjak pengumuman kemerdekaan itu seluruh Indonesia pada saat pada 9:00 pagi harus menyanyikan lagu Indonesia raya.\nPembicara 2: Yes, this work.\nPembicara 1: Thats for the this is function. This functionality was.\nPembicara 2: Apa ya priority for audience or like.",
+      "language": "Bahasa Indonesia",
+      "timestamp": "2026-09-17T07:12:57.103Z"
+    },
+    {
+      "id": "hist_1789626500398",
+      "user_id": "usr_1789625759193",
+      "feature": "speech",
+      "title": "Transkripsi Suara Langsung (1 Kalimat)",
+      "input_snippet": "Pembicara 1: Akan ada meeting pada tanggal 17 September 2002 6.",
+      "result_data": "Pembicara 1: Akan ada meeting pada tanggal 17 September 2002 6.",
+      "language": "Bahasa Indonesia",
+      "timestamp": "2026-09-17T06:28:20.399Z"
+    },
+    {
+      "id": "hist_1789626500216",
+      "user_id": "usr_1789625759193",
+      "feature": "speech",
+      "title": "Transkripsi Suara Langsung (1 Kalimat)",
+      "input_snippet": "Pembicara 1: Akan ada meeting pada tanggal 17 September 2002 6.",
+      "result_data": "Pembicara 1: Akan ada meeting pada tanggal 17 September 2002 6.",
+      "language": "Bahasa Indonesia",
+      "timestamp": "2026-09-17T06:28:20.216Z"
+    },
+    {
+      "id": "hist_1789625774229",
+      "user_id": "usr_1789625759193",
+      "feature": "speech",
+      "title": "Transkripsi Suara Langsung (1 Kalimat)",
+      "input_snippet": "Pembicara 1: Ini adalah tes 2 setelah dicoba diperbaiki. Namun dari tadi sepertinya bab tetap error dan saya enggak ngerti salahnya di mana.",
+      "result_data": "Pembicara 1: Ini adalah tes 2 setelah dicoba diperbaiki. Namun dari tadi sepertinya bab tetap error dan saya enggak ngerti salahnya di mana.",
+      "language": "Bahasa Indonesia",
+      "timestamp": "2026-09-17T06:16:14.229Z"
+    },
+    {
+      "id": "hist_1789625211338",
+      "user_id": "usr_1789625202597",
+      "feature": "speech",
+      "title": "Transkripsi Suara Langsung (1 Kalimat)",
+      "input_snippet": "Pembicara 1: Hello. My name is carla.",
+      "result_data": "Pembicara 1: Hello. My name is carla.",
+      "language": "Bahasa Indonesia",
+      "timestamp": "2026-09-17T06:06:51.338Z"
+    },
+    {
+      "id": "hist_1789624584101",
+      "user_id": "usr_1789623677202",
+      "feature": "speech",
+      "title": "Transkripsi Suara Langsung (1 Kalimat)",
+      "input_snippet": "Pembicara 1: Tes halo.",
+      "result_data": "Pembicara 1: Tes halo.",
+      "language": "Bahasa Indonesia",
+      "timestamp": "2026-09-17T05:56:24.101Z"
+    },
+    {
+      "id": "hist_1789623710304",
+      "user_id": "usr_1789623677202",
+      "feature": "speech",
+      "title": "Transkripsi Suara Langsung (1 Kalimat)",
+      "input_snippet": "Pembicara 1: Halo anda bersaya karena.",
+      "result_data": "Pembicara 1: Halo anda bersaya karena.",
+      "language": "Bahasa Indonesia",
+      "timestamp": "2026-09-17T05:41:50.304Z"
+    },
+    {
+      "id": "hist_1789623699496",
+      "user_id": "usr_1789623677202",
+      "feature": "speech",
+      "title": "Transkripsi Suara Langsung (1 Kalimat)",
+      "input_snippet": "Pembicara 1: Halo ramen saya.",
+      "result_data": "Pembicara 1: Halo ramen saya.",
+      "language": "Bahasa Indonesia",
+      "timestamp": "2026-09-17T05:41:39.496Z"
+    },
+    {
+      "id": "hist_1789623691329",
+      "user_id": "usr_1789623677202",
+      "feature": "speech",
+      "title": "Transkripsi Suara Langsung (1 Kalimat)",
+      "input_snippet": "Pembicara 1: Halo nama saya.",
+      "result_data": "Pembicara 1: Halo nama saya.",
+      "language": "Bahasa Indonesia",
+      "timestamp": "2026-09-17T05:41:31.329Z"
+    }
+  ]
+}

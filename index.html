@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="default" data-font-scale="normal">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AksesAI - Pendamping Aksesibilitas Informasi untuk Teman Tuli & Teman Dengar</title>
+    <meta name="description" content="AksesAI mengubah informasi lisan, rekaman suara/video, dan teks rumit menjadi informasi yang mudah dibaca dan dipahami untuk pengguna Tuli dan Gangguan Pendengaran di Indonesia.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- WCAG Skip to Main Content Link -->
+    <a href="#main-content" class="skip-link">Langsung ke Konten Utama</a>
+
+    <!-- Top Accessibility Toolbar -->
+    <div class="a11y-toolbar" aria-label="Bilah Alat Aksesibilitas">
+        <div class="a11y-container">
+            <div class="a11y-group">
+                <span class="a11y-label">🔤 Ukuran Teks:</span>
+                <button type="button" class="btn-a11y active" id="btn-font-normal" aria-label="Ukuran Teks Normal">Normal</button>
+                <button type="button" class="btn-a11y" id="btn-font-large" aria-label="Ukuran Teks Besar">Besar (125%)</button>
+                <button type="button" class="btn-a11y" id="btn-font-xlarge" aria-label="Ukuran Teks Sangat Besar">Sangat Besar (150%)</button>
+            </div>
+
+            <div class="a11y-group">
+                <span class="a11y-label">🎨 Tema Kontras:</span>
+                <button type="button" class="btn-a11y active" id="btn-theme-default">Standar</button>
+                <button type="button" class="btn-a11y" id="btn-theme-contrast">Kontras Tinggi (Kuning-Hitam)</button>
+                <button type="button" class="btn-a11y" id="btn-theme-dark">Mode Gelap</button>
+            </div>
+
+            <div class="a11y-group">
+                <label for="chk-dyslexia" style="display: flex; align-items: center; gap: 6px; cursor: pointer; font-weight: 600;">
+                    <input type="checkbox" id="chk-dyslexia">
+                    <span>Huruf Ramah Disleksia</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="#" class="logo-group" aria-label="Halaman Utama AksesAI">
+                <span class="logo-icon" aria-hidden="true">🤟</span>
+                <span class="logo-text">AksesAI</span>
+            </a>
+
+            <nav aria-label="Navigasi Utama">
+                <ul class="nav-menu">
+                    <li><a href="#beranda" class="nav-link active" id="nav-beranda">Beranda</a></li>
+                    <li><a href="#fitur" class="nav-link" id="nav-fitur">Fitur Utama</a></li>
+                    <li><a href="#riwayat" class="nav-link" id="nav-riwayat">Riwayat Saya</a></li>
+                    <li><a href="#tentang" class="nav-link" id="nav-tentang">Tentang Kami</a></li>
+                    <li>
+                        <button type="button" id="btn-open-auth" class="btn btn-outline" style="padding: 6px 14px; min-height: 40px;" aria-label="Masuk atau Daftar Akun">
+                            <span id="auth-btn-label">👤 Masuk / Daftar</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="main-content" tabindex="-1">
+        <!-- Hero Section -->
+        <section class="hero-section" id="beranda">
+            <span class="hero-badge">Pendamping Aksesibilitas Informasi Berbasis AI</span>
+            <h1 class="hero-title">Mentransformasi Informasi Harian Menjadi Informasi yang Mudah Diakses & Dipahami.</h1>
+            <p class="hero-subtitle">
+                AksesAI bukan chatbot umum. AksesAI adalah <strong>Sistem Pendamping Aksesibilitas</strong> yang mentransformasikan pembicaraan lisan, rekaman suara/video, foto pengumuman/surat resmi, dan dokumen rumit menjadi informasi yang jelas, terstruktur, dan mudah ditindaklanjuti bagi komunitas Tuli & Teman Dengar.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                <a href="#akses-menu" class="btn btn-primary btn-lg">Mulai Sekarang</a>
+                <a href="#cara-kerja" class="btn btn-outline btn-lg">Cara Kerja Sistem AI</a>
+            </div>
+        </section>
+
+        <!-- Main Action Selector: "Informasi apa yang ingin kamu akses?" -->
+        <section class="action-choice-section" id="akses-menu" aria-labelledby="question-title">
+            <h2 id="question-title" class="section-question-title">Informasi apa yang ingin Anda akses saat ini?</h2>
+            
+            <div class="feature-cards-grid">
+                <!-- Card 1: Speech to Text -->
+                <button type="button" class="feature-choice-card active" id="card-choice-speech" aria-controls="view-speech-container" aria-expanded="true">
+                    <div class="card-icon-wrapper" aria-hidden="true">🎙️</div>
+                    <h3 class="feature-card-title">Dengarkan → Teks Real-time</h3>
+                    <p class="feature-card-desc">Ubah pembicaraan langsung dari mikrofon menjadi teks tulisan di layar secara real-time saat orang berbicara di sekitar Anda.</p>
+                    <span class="card-action-indicator">Buka Fitur ini &rarr;</span>
+                </button>
+
+                <!-- Card 2: Audio/Video Upload -->
+                <button type="button" class="feature-choice-card" id="card-choice-upload" aria-controls="view-upload-container" aria-expanded="false">
+                    <div class="card-icon-wrapper" aria-hidden="true">📁</div>
+                    <h3 class="feature-card-title">Upload Audio / Video Media</h3>
+                    <p class="feature-card-desc">Unggah berkas rekaman suara atau video (pengumuman, rapat, seminar) untuk mendapatkan transkrip dan ringkasan poin penting.</p>
+                    <span class="card-action-indicator">Buka Fitur ini &rarr;</span>
+                </button>
+
+                <!-- Card 3: Complicated Text, Photo & Document Simplification -->
+                <button type="button" class="feature-choice-card" id="card-choice-simplify" aria-controls="view-simplify-container" aria-expanded="false">
+                    <div class="card-icon-wrapper" aria-hidden="true">📝</div>
+                    <h3 class="feature-card-title">Teks, Foto & Dokumen → Mudah Dipahami</h3>
+                    <p class="feature-card-desc">Unggah foto surat pemerintah/sekolah, berkas PDF, atau tempel teks formal untuk diubah menjadi Bahasa Indonesia yang ringkas dan terstruktur.</p>
+                    <span class="card-action-indicator">Buka Fitur ini &rarr;</span>
+                </button>
+
+                <!-- Card 4: User History -->
+                <button type="button" class="feature-choice-card" id="card-choice-history" aria-controls="view-history-container" aria-expanded="false">
+                    <div class="card-icon-wrapper" aria-hidden="true">📜</div>
+                    <h3 class="feature-card-title">Riwayat Aktivitas Saya</h3>
+                    <p class="feature-card-desc">Lihat dan kelola kembali hasil transkripsi, analisis berkas, dan penyederhanaan teks yang pernah Anda lakukan.</p>
+                    <span class="card-action-indicator">Buka Fitur ini &rarr;</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Feature Workspaces Section -->
+        <section class="views-container" id="fitur" aria-label="Area Kerja Fitur AI">
+            <div id="view-speech-container"></div>
+            <div id="view-upload-container"></div>
+            <div id="view-simplify-container"></div>
+            <div id="view-history-container"></div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works-section" id="cara-kerja">
+            <h2>Bagaimana Sistem AksesAI Bekerja?</h2>
+            <p class="card-subtext">Alur kerja transformasi informasi dari sumber mentah hingga menjadi informasi terstruktur yang mudah diakses.</p>
+            
+            <div class="flow-diagram-container">
+                <div class="flow-node">
+                    <div class="flow-node-icon">📢</div>
+                    <h3>1. Sumber Informasi</h3>
+                    <p>Suara langsung, berkas audio/video, atau teks formal yang sulit dipahami.</p>
+                </div>
+                <span class="flow-arrow" aria-hidden="true">&rarr;</span>
+                <div class="flow-node">
+                    <div class="flow-node-icon">🤖</div>
+                    <h3>2. Pemrosesan Gemini AI</h3>
+                    <p>AI memproses struktur bahasa, mengekstrak tanggal, instruksi, dan poin penting.</p>
+                </div>
+                <span class="flow-arrow" aria-hidden="true">&rarr;</span>
+                <div class="flow-node">
+                    <div class="flow-node-icon">✨</div>
+                    <h3>3. Informasi Mudah Diakses</h3>
+                    <p>Teks ringkas, jelas, dan ramah aksesibilitas siap dibaca.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Impact Section -->
+        <section class="social-impact-section" id="tentang">
+            <h2>Dampak Sosial AksesAI di Indonesia</h2>
+            <p>AksesAI dibuat untuk mengatasi kesenjangan akses informasi di kehidupan sehari-hari bagi komunitas Tuli dan Gangguan Pendengaran di Indonesia.</p>
+
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <h3>🎓 Pendidikan</h3>
+                    <p>Memudahkan siswa dan mahasiswa Tuli memahami pengumuman akademik, perkuliahan, dan pengumuman sekolah.</p>
+                </div>
+                <div class="impact-item">
+                    <h3>🏛️ Layanan Publik & Pemerintah</h3>
+                    <p>Memudahkan akses ke pengumuman BPJS, kelurahan, bantuan sosial, dan surat resmi instansi.</p>
+                </div>
+                <div class="impact-item">
+                    <h3>💼 Dunia Kerja</h3>
+                    <p>Membantu pencari kerja memahami informasi lowongan kerja, proses seleksi, dan komunikasi instansi.</p>
+                </div>
+                <div class="impact-item">
+                    <h3>🚌 Transportasi & Publik</h3>
+                    <p>Memahami pengumuman suara di stasiun, bandara, terminal, atau pengumuman darurat publik.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="bantuan">
+        <div class="footer-container">
+            <div>
+                <a href="#" class="logo-group" style="margin-bottom: 12px; display: inline-flex;">
+                    <span class="logo-icon" aria-hidden="true">🤟</span>
+                    <span class="logo-text">AksesAI</span>
+                </a>
+                <p>Pendamping Aksesibilitas Informasi Berbasis AI untuk Indonesia.</p>
+                <p class="footer-disclaimer">
+                    AksesAI adalah alat bantu aksesibilitas informasi dan bukan produk medis atau diagnostik.
+                    Aplikasi ini dirancang mengikuti pedoman aksessibilitas web WCAG 2.2 AA.
+                </p>
+            </div>
+
+            <div>
+                <h4>Pernyataan Privasi</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">
+                    Berkas dan teks yang diunggah diproses secara langsung melalui Gemini API dan tidak disimpan secara permanen di server kami.
+                </p>
+            </div>
+
+            <div>
+                <h4>Terminologi Ramah</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">
+                    Kami menghormati identitas budaya Tuli dan menggunakan istilah Tuli, Teman Dengar, dan Gangguan Pendengaran.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
