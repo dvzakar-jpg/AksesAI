@@ -1,10 +1,35 @@
-const getBackendUrl = () => {
-    if (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
-        return 'http://localhost:3000/api';
+const LOCAL_API_URL = 'http://localhost:3000/api';
+const PRODUCTION_API_URL = 'https://aksesai-backend-production.up.railway.app/api';
+
+/**
+ * Smart fetch with automatic fallback:
+ * Tries local server (http://localhost:3000/api) first if on localhost, then falls back to Railway production API.
+ */
+async function fetchWithFallback(endpointPath, fetchOptions = {}) {
+    const isLocalhost = typeof window !== 'undefined' && 
+        (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+
+    const urlsToTry = isLocalhost 
+        ? [LOCAL_API_URL, PRODUCTION_API_URL]
+        : [PRODUCTION_API_URL, LOCAL_API_URL];
+
+    let lastError = null;
+
+    for (const baseUrl of urlsToTry) {
+        try {
+            const res = await fetch(`${baseUrl}${endpointPath}`, fetchOptions);
+            // If server returns 502/503 (server initializing/restarting on cloud), try next URL
+            if ((res.status === 502 || res.status === 503 || res.status === 504) && urlsToTry.indexOf(baseUrl) < urlsToTry.length - 1) {
+                lastError = new Error(`Server returned status ${res.status}`);
+                continue;
+            }
+            return res;
+        } catch (err) {
+            lastError = err;
+        }
     }
-    return 'https://aksesai-backend-production.up.railway.app/api';
-};
-const BACKEND_URL = getBackendUrl();
+    throw lastError || new Error('Gagal terhubung ke server backend AksesAI.');
+}
 
 // Local storage keys for standalone mode
 const LOCAL_USERS_KEY = 'aksesai_users_db';
@@ -53,7 +78,7 @@ export const ApiService = {
     _handleFetchError(e, defaultMsg) {
         console.error('ApiService error:', e);
         if (e.name === 'TypeError' || (e.message && (e.message.includes('fetch') || e.message.includes('Failed')))) {
-            return new Error('Gagal terhubung ke server backend AksesAI (Port 3000). Silakan pastikan server backend (node server.js) sudah aktif.');
+            return new Error('Gagal terhubung ke server backend AksesAI. Silakan pastikan server backend (node server.js) sudah dijalankan di terminal atau tunggu beberapa saat hingga deployment Railway selesai.');
         }
         return new Error(e.message || defaultMsg);
     },
@@ -66,7 +91,7 @@ export const ApiService = {
         const { text = '', base64Data = null, mimeType = null, scenario = 'Umum' } = typeof payload === 'string' ? { text: payload } : payload;
 
         try {
-            const res = await fetch(`${BACKEND_URL}/ai/simplify`, {
+            const res = await fetchWithFallback('/ai/simplify', {
                 method: 'POST',
                 headers: this._getHeaders(),
                 body: JSON.stringify({ text, base64Data, mimeType, scenario })
@@ -84,7 +109,7 @@ export const ApiService = {
      */
     async explainFurther(originalText, currentSimplification, question) {
         try {
-            const res = await fetch(`${BACKEND_URL}/ai/explain-further`, {
+            const res = await fetchWithFallback('/ai/explain-further', {
                 method: 'POST',
                 headers: this._getHeaders(),
                 body: JSON.stringify({ originalText, currentSimplification, question })
@@ -102,7 +127,7 @@ export const ApiService = {
      */
     async processAudioVideo(base64Data, mimeType, transcriptText = '') {
         try {
-            const res = await fetch(`${BACKEND_URL}/ai/audio-process`, {
+            const res = await fetchWithFallback('/ai/audio-process', {
                 method: 'POST',
                 headers: this._getHeaders(),
                 body: JSON.stringify({ base64Data, mimeType, transcriptText })
@@ -115,11 +140,12 @@ export const ApiService = {
         }
     },
 
+
     // --- AUTHENTICATION (Server + Standalone Local Storage Fallback) ---
     async login(username, password) {
         // Try backend server first
         try {
-            const res = await fetch(`${BACKEND_URL}/auth/login`, {
+            const res = await fetchWithFallback('/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password })
@@ -152,7 +178,7 @@ export const ApiService = {
 
     async register(username, email, password) {
         try {
-            const res = await fetch(`${BACKEND_URL}/auth/register`, {
+            const res = await fetchWithFallback('/auth/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, email, password })
@@ -210,7 +236,7 @@ export const ApiService = {
         if (!currentUser) return [];
 
         try {
-            const res = await fetch(`${BACKEND_URL}/history`, {
+            const res = await fetchWithFallback('/history', {
                 method: 'GET',
                 headers: this._getHeaders()
             });
@@ -232,7 +258,7 @@ export const ApiService = {
         item.user_id = currentUser.id;
 
         try {
-            const res = await fetch(`${BACKEND_URL}/history`, {
+            const res = await fetchWithFallback('/history', {
                 method: 'POST',
                 headers: this._getHeaders(),
                 body: JSON.stringify(item)
@@ -251,7 +277,7 @@ export const ApiService = {
         if (!currentUser) return;
 
         try {
-            await fetch(`${BACKEND_URL}/history/${id}`, {
+            await fetchWithFallback(`/history/${id}`, {
                 method: 'DELETE',
                 headers: this._getHeaders()
             });
@@ -266,7 +292,7 @@ export const ApiService = {
         if (!currentUser) return;
 
         try {
-            await fetch(`${BACKEND_URL}/history`, {
+            await fetchWithFallback('/history', {
                 method: 'DELETE',
                 headers: this._getHeaders()
             });
@@ -276,3 +302,4 @@ export const ApiService = {
         saveLocalHistoryAll(allHistory);
     }
 };
+

@@ -356,7 +356,11 @@ app.delete('/api/history', (req, res) => {
     return res.json({ success: true });
 });
 
-app.listen(PORT, () => {
-    console.log(`🚀 AksesAI Server berjalan di http://localhost:${PORT}`);
+app.get(['/health', '/api/health'], (req, res) => {
+    return res.json({ status: 'ok', message: 'AksesAI Backend Server is running', timestamp: new Date().toISOString() });
+});
+
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 AksesAI Server berjalan di http://0.0.0.0:${PORT}`);
 });
 
