@@ -1,4 +1,10 @@
-const BACKEND_URL = 'https://aksesai-backend-production.up.railway.app/api';
+const getBackendUrl = () => {
+    if (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+        return 'http://localhost:3000/api';
+    }
+    return 'https://aksesai-backend-production.up.railway.app/api';
+};
+const BACKEND_URL = getBackendUrl();
 
 // Local storage keys for standalone mode
 const LOCAL_USERS_KEY = 'aksesai_users_db';

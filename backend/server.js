@@ -17,7 +17,10 @@ const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GE
 
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
-app.use(express.static(path.join(__dirname, '../'))); // Serve static frontend files
+const frontendDir = fs.existsSync(path.join(__dirname, '../index.html'))
+    ? path.join(__dirname, '../')
+    : path.join(__dirname, './');
+app.use(express.static(frontendDir)); // Serve static frontend files
 
 // --- Simple Data Store (Users, History) ---
 const DB_FILE = path.join(__dirname, 'db_data.json');
