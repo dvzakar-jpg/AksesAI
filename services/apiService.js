@@ -1,35 +1,9 @@
-const LOCAL_API_URL = 'http://localhost:3000/api';
-const PRODUCTION_API_URL = 'https://aksesai-backend-production.up.railway.app/api';
+const BACKEND_URL = 'https://aksesai-backend-production.up.railway.app/api';
 
-/**
- * Smart fetch with automatic fallback:
- * Tries local server (http://localhost:3000/api) first if on localhost, then falls back to Railway production API.
- */
 async function fetchWithFallback(endpointPath, fetchOptions = {}) {
-    const isLocalhost = typeof window !== 'undefined' && 
-        (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
-
-    const urlsToTry = isLocalhost 
-        ? [LOCAL_API_URL, PRODUCTION_API_URL]
-        : [PRODUCTION_API_URL, LOCAL_API_URL];
-
-    let lastError = null;
-
-    for (const baseUrl of urlsToTry) {
-        try {
-            const res = await fetch(`${baseUrl}${endpointPath}`, fetchOptions);
-            // If server returns 502/503 (server initializing/restarting on cloud), try next URL
-            if ((res.status === 502 || res.status === 503 || res.status === 504) && urlsToTry.indexOf(baseUrl) < urlsToTry.length - 1) {
-                lastError = new Error(`Server returned status ${res.status}`);
-                continue;
-            }
-            return res;
-        } catch (err) {
-            lastError = err;
-        }
-    }
-    throw lastError || new Error('Gagal terhubung ke server backend AksesAI.');
+    return await fetch(`${BACKEND_URL}${endpointPath}`, fetchOptions);
 }
+
 
 // Local storage keys for standalone mode
 const LOCAL_USERS_KEY = 'aksesai_users_db';
